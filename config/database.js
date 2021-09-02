@@ -4,12 +4,10 @@ module.exports = ({ env }) => ({
     default: {
       connector: 'mongoose',
       settings: {
-        host: env('DATABASE_HOST', 'cluster0.gluvj.mongodb.net'),
+        uri: env('DATABASE_URI'),
         srv: env.bool('DATABASE_SRV', true),
         port: env.int('DATABASE_PORT', 27017),
-        database: env('DATABASE_NAME', 'orgMgr'),
-        username: env('DATABASE_USERNAME', 'your-username'),
-        password: env('DATABASE_PASSWORD', 'your password'),
+        database: env('DATABASE_NAME'),
       },
       options: {
         authenticationDatabase: env('AUTHENTICATION_DATABASE', null),
@@ -17,4 +15,4 @@ module.exports = ({ env }) => ({
       },
     },
   },
-});
+})
